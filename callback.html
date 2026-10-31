@@ -13,12 +13,14 @@
 <script>
   // Everything stays in this page: the code is read from the address bar and never sent anywhere.
   const q = new URLSearchParams(location.search), code = q.get('code');
-  if (code) {
+  const want = sessionStorage.getItem('tiktok_state'); sessionStorage.removeItem('tiktok_state');
+  const stateOk = !want || q.get('state') === want;  // started from the site's button: state must match
+  if (code && stateOk) {
     document.getElementById('ok').hidden = false; document.getElementById('code').textContent = code;
     document.getElementById('copy').onclick = () => navigator.clipboard.writeText(code).then(() => document.getElementById('copy').textContent = 'Copied');
   } else {
     document.getElementById('err').hidden = false;
-    document.getElementById('why').textContent = q.get('error_description') || q.get('error') || 'no code in the link';
+    document.getElementById('why').textContent = q.get('error_description') || q.get('error') || (code ? 'the sign-in did not start from this site (state mismatch); try again' : 'no code in the link');
   }
   history.replaceState(null, '', location.pathname);
 </script>
