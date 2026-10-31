@@ -1,0 +1,7 @@
+body{margin:0;background:#14213D;color:#F5EEDC;font:17px/1.6 Georgia,serif}
+main{max-width:680px;margin:0 auto;padding:40px 22px}
+h1{font-size:30px;margin:.2em 0}h2{font-size:20px;margin-top:1.6em;color:#E9C46A}
+a{color:#E9C46A}img.logo{width:120px;height:120px;border-radius:50%;display:block}
+.code{background:#F5EEDC;color:#14213D;padding:14px;border-radius:6px;font:16px monospace;word-break:break-all}
+button{background:#E8553C;color:#fff;border:0;border-radius:6px;padding:12px 18px;font-size:16px;margin-top:12px}
+footer{margin-top:3em;font-size:14px;opacity:.8}

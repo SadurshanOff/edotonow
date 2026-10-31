@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer"><meta name="robots" content="noindex">
+<title>Connect TikTok · Edo to Now Studio</title><link rel="stylesheet" href="style.css"></head><body><main>
+<h1>Connect TikTok</h1>
+<div id="ok" hidden>
+  <p>TikTok approved the connection. Copy this code and paste it into <b>tiktok-connect</b> (Actions, Run
+  workflow) within a few minutes. It works once.</p>
+  <div class="code" id="code"></div>
+  <button id="copy">Copy code</button>
+  <p><a href="https://github.com/SadurshanOff/TikTok-Automated/actions/workflows/tiktok-connect.yml">Open tiktok-connect</a></p>
+</div>
+<div id="err" hidden><p>TikTok did not return a code: <span id="why"></span></p></div>
+<script>
+  // Everything stays in this page: the code is read from the address bar and never sent anywhere.
+  const q = new URLSearchParams(location.search), code = q.get('code');
+  if (code) {
+    document.getElementById('ok').hidden = false; document.getElementById('code').textContent = code;
+    document.getElementById('copy').onclick = () => navigator.clipboard.writeText(code).then(() => document.getElementById('copy').textContent = 'Copied');
+  } else {
+    document.getElementById('err').hidden = false;
+    document.getElementById('why').textContent = q.get('error_description') || q.get('error') || 'no code in the link';
+  }
+  history.replaceState(null, '', location.pathname);
+</script>
+</main></body></html>
