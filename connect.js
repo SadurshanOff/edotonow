@@ -1,6 +1,6 @@
 // "Connect TikTok" button for the account owner. The client key is public (TikTok shows it in the sign-in URL);
 // the secret never comes near this site. Set it to the Sandbox key for the demo, the production key after approval.
-const TIKTOK_CLIENT_KEY = '';
+const TIKTOK_CLIENT_KEY = 'sbawv2hkhwyp7gbaw4';  // Sandbox key (2026-11-01)
 const REDIRECT = 'https://sadurshanoff.github.io/edotonow/callback.html';
 const btn = document.getElementById('connect'), note = document.getElementById('connect-note');
 if (!TIKTOK_CLIENT_KEY) { btn.disabled = true; note.textContent = 'Not configured yet.'; }
