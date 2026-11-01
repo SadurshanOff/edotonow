@@ -8,6 +8,7 @@ btn.onclick = () => {
   const state = crypto.randomUUID();
   sessionStorage.setItem('tiktok_state', state);
   const q = new URLSearchParams({client_key: TIKTOK_CLIENT_KEY, scope: 'user.info.basic,video.upload',
-                                 response_type: 'code', redirect_uri: REDIRECT, state});
+                                 response_type: 'code', redirect_uri: REDIRECT, state,
+                                 disable_auto_auth: '1'});  // always show TikTok's Authorize page
   location.href = 'https://www.tiktok.com/v2/auth/authorize/?' + q.toString();
 };
